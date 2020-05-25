@@ -1,6 +1,7 @@
 # Overview
 This project uses the [MediaWiki API](https://en.wikipedia.org/w/api.php) to fetch table of contents of a page.
 You may search across 10 languages.
+Demo: https://wikipedia-toc-search.netlify.app/
 
 ## Languages available
 - العربية (Arabic)
