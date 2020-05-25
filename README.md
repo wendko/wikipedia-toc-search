@@ -1,5 +1,5 @@
 # Overview
-This project uses the MediaWiki API to fetch table of contents of a page.
+This project uses the [MediaWiki API](https://en.wikipedia.org/w/api.php) to fetch table of contents of a page.
 You may search across 10 languages.
 
 ## Languages available
@@ -14,14 +14,15 @@ You may search across 10 languages.
 - Español (Spanish)
 - ภาษาไทย (Thai)
 
-## Example search text
-- العربية (Arabic): قط
-- English: cat
-- فارسی Farsi/Persian: گربه
-- Français (French): chat
-- Italiano (Italian): maggio
-- 日本語 (Japanese): ネコ
-- 中文 (Chinese): 猫
-- Русский (Russian): кошка
-- Español (Spanish): mayo
-- ภาษาไทย (Thai): แมว
+| Language | Example search text |
+|--- | --- |
+|العربية (Arabic) | `قط` |
+|English | `cat` |
+|فارسی Farsi/Persian | `گربه` |
+|Français (French) | `chat` |
+|Italiano (Italian) | `maggio` |
+|日本語 (Japanese) | `ネコ` |
+|中文 (Chinese) | `猫` |
+|Русский (Russian) | `кошка` |
+|Español (Spanish) | `mayo` |
+|ภาษาไทย (Thai) | `แมว` |
