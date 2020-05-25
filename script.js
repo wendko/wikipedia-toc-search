@@ -87,7 +87,6 @@ function createSectionLink(section, inputLanguageVal, pageId) {
     sectionItemLink.innerHTML = section.number + ' ' + section.line;
     sectionItemLink.setAttribute('href',
         'https://' + inputLanguageVal + '.wikipedia.org/?curid=' + pageId + '#' + section.anchor);
-    sectionItemLink.setAttribute('target', '_blank');
     sectionItemEl.appendChild(sectionItemLink);
     if (section.children.length > 0) {
         const subsectionGroupEl = document.createElement('ul');
