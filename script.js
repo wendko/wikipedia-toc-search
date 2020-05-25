@@ -39,10 +39,11 @@ function fetchResults() {
             }
             resultEl.innerText = '';
 
-            // get data from text
+            // Get data from text
             const pageId = response.parse.pageid;
             const reformattedSections = reformatSections(response.parse.sections);
 
+            // Create list
             const sectionGroupEl = document.createElement('ul');
             reformattedSections.forEach(function (section) {
                 sectionGroupEl.appendChild(createSectionLink(section, inputLanguageVal, pageId));
@@ -57,7 +58,7 @@ function reformatSections(sections) {
     sections.forEach(function (section) {
         let targetLocation = result;
 
-        // if toc level is more than 1, it doesn't belong in the top level anymore
+        // If the toc level is more than 1, it doesn't belong in the top level anymore
         // we need to traverse down the list and find the right children array that this item belongs to
         if (section.toclevel > 1) {
             for (let step = 1; step < section.toclevel; step++) {
