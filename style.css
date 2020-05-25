@@ -29,6 +29,7 @@ body {
     border-radius: 8px;
     border: 2px solid #eeeeee;
     background: #eeeeee;
+    width: 300px;
 }
 
 #form label {
