@@ -5,6 +5,10 @@ const resultEl = document.querySelector('#result');
 const inputTitleEl = document.getElementById(inputTitleId);
 const inputLanguageEl = document.getElementById(inputLanguageId);
 const rtlScripts = ['he', 'ar', 'fa', 'arz', 'azb', 'ur'];
+const welcomeText = 'Your search results will appear here.';
+const fetchingResultsText = 'Fetching results';
+const errorText = 'Oops! Something went wrong. Please try again.';
+const noResultsFoundText = 'No results found.';
 
 //#region language functions
 function setTextDirection(inputLanguageVal) {
@@ -29,7 +33,7 @@ function getFetchUrl(languageId, text) {
 function fetchResults() {
     const inputTitleVal = getFormValue(inputTitleId);
     const inputLanguageVal = getFormValue(inputLanguageId);
-    resultEl.innerHTML = 'Fetching results';
+    resultEl.innerHTML = fetchingResultsText;
 
     fetch(getFetchUrl(inputLanguageVal, inputTitleVal))
         .then(function (response) {
@@ -37,7 +41,7 @@ function fetchResults() {
         })
         .then(function (response) {
             if (!response.parse || !response.parse.sections || !response.parse.sections.length) {
-                resultEl.innerText = 'No results found';
+                resultEl.innerText = noResultsFoundText;
                 return;
             }
             resultEl.innerText = '';
@@ -53,6 +57,10 @@ function fetchResults() {
             });
             resultEl.appendChild(sectionGroupEl);
             result.setAttribute('lang', inputLanguageVal);
+        })
+        .catch(function (error) {
+            result.innerText = errorText;
+            throw new Error(error);
         });
 }
 
@@ -101,14 +109,15 @@ function createSectionLink(section, inputLanguageVal, pageId) {
 
 //#region set up
 setTextDirection(inputLanguageEl.value);
+resultEl.innerText = welcomeText;
 
 inputLanguageEl.addEventListener('change', function (e) {
     setTextDirection(e.target.value);
-    if (resultEl.innerHTML !== '' && getFormValue(inputTitleId) !== '') {
+    if (resultEl.innerHTML !== welcomeText && getFormValue(inputTitleId) !== '') {
         fetchResults();
     }
     if (getFormValue(inputTitleId) === '') {
-        resultEl.innerHTML = '';
+        resultEl.innerHTML = welcomeText;
     }
 });
 
