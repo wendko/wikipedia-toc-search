@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+}
+
+#form, #form > *, #result, #title, #subtitle {
+    margin: 16px;
+}
+
+#title {
+    color: #2f2f2f;
+}
+
+#subtitle {
+    color: #626262;
+}
+
+#form {
+    border-radius: 8px;
+    border: 2px solid #eeeeee;
+    background: #eeeeee;
+}
+
+#form label {
+    margin-bottom: 3px;
+}
+
+#result {
+    line-height: 1.8;
+}
+
+#result ul {
+    list-style: none;
+    padding: none;
+}

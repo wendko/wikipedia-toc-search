@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikimedia Search Table of Contents</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+    <script src="https://unpkg.com/unfetch/polyfill" type="text/javascript"></script>
+</head>
+<body>
+    <header>
+        <h1 id="title">Search Wikipedia's Table of Contents</h1>
+        <p id="subtitle">Created using the <a href="https://en.wikipedia.org/w/api.php" target="_blank">MediaWiki API</a>. 
+            Source code on <a href="https://github.com/wendko/wikipedia-toc-search">GitHub</a>.
+        </p>
+    </header>
+    <main>
+        <form id="form" action="https://en.wikipedia.org/api/rest_v1/page/summary/Beetlejuice" method="get">
+            <div class="input">
+                <label for="input-language">Language</label>
+                <select id="input-language">
+                    <option value="ar" lang="ar">العربية (Arabic)</option>
+                    <option value="en" lang="en" selected>English</option>
+                    <option value="fa" lang="fa">فارسی (Farsi/Persian)</option>
+                    <option value="fr" lang="fr">Français (French)</option>
+                    <option value="it" lang="it">Italiano (Italian)</option>
+                    <option value="ja" lang="ja">日本語 (Japanese)</option>
+                    <option value="zh" lang="zh">中文 (Chinese)</option>
+                    <option value="ru" lang="ru">Русский (Russian)</option>
+                    <option value="es" lang="es">Español (Spanish)</option>
+                    <option value="th" lang="th">ภาษาไทย (Thai)</option>
+                </select>
+            </div>
+            <div class="input">
+                <label for="input-title">Article Title</label>
+                <input type="text" id="input-title" placeholder="i.e. Douglas Adams" required>
+            </div>
+            <button type="submit">Fetch</button>
+        </form>
+        <div id="result"></div>
+        <script src="script.js"></script>
+    </main>
+</body>
+</html>
