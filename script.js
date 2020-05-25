@@ -8,7 +8,10 @@ const rtlScripts = ['he', 'ar', 'fa', 'arz', 'azb', 'ur'];
 
 //#region language functions
 function setTextDirection(inputLanguageVal) {
-    document.documentElement.style.direction = rtlScripts.indexOf(inputLanguageVal) > -1 ? 'rtl' : 'ltr';
+    const textDir = rtlScripts.indexOf(inputLanguageVal) > -1 ? 'rtl' : 'ltr';
+    resultEl.style.direction = textDir;
+    inputLanguageEl.style.direction = textDir;
+    inputTitleEl.style.direction = textDir;
 }
 //#endregion
 
@@ -49,6 +52,7 @@ function fetchResults() {
                 sectionGroupEl.appendChild(createSectionLink(section, inputLanguageVal, pageId));
             });
             resultEl.appendChild(sectionGroupEl);
+            result.setAttribute('lang', inputLanguageVal);
         });
 }
 
